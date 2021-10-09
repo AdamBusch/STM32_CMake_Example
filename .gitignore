@@ -2,3 +2,5 @@
 # Dont upload our build artifacts, easily clean with `git clean -fdx`
 build/*
 output/*
+.vscode/settings.json
+.vscode/.cortex-debug.*
