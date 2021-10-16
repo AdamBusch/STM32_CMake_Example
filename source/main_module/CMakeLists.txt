@@ -12,11 +12,12 @@ target_link_libraries(STM32_L4_HAL_LIB CMSIS_L432)
 target_include_directories(STM32_L4_HAL_LIB PUBLIC hal)
 
 # Add PER RTOS Library
-target_link_libraries(${TARGET_NAME} PER_RTOS)
+target_link_libraries(${TARGET_NAME} PSCHED)
+target_link_libraries(${TARGET_NAME} PHAL_L4)
 
 # Find all .c sources in project, recursive search starting at component root
 file(GLOB_RECURSE glob_sources "*.c")
-target_sources(${TARGET_NAME} PRIVATE ${glob_sources} startup_stm32l432xx.s)
+target_sources(${TARGET_NAME} PRIVATE ${glob_sources})
 
 # Find directories for '#include'
 SUBDIRLIST(${CMAKE_CURRENT_LIST_DIR} include_dirs)

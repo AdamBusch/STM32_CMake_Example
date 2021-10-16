@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "python per_build.py",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Submodule Update",
+            "group": "none",
+            "type": "shell",
+            "command": "git submodule update --init --recursive",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "runOptions": {"runOn": "folderOpen"}
+        },
+        { 
+            "label": "can_gen",
+            "type": "shell",
+            "command": "python ./common/daq/generation/generator.py",
+            "problemMatcher": []
+        }
+    ]
+}
